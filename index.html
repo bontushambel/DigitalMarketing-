@@ -150,7 +150,7 @@
       margin-bottom: 2rem;
     }
 
-    /* Image styling */
+    /* Image styling with animations */
     .hero-image {
       flex: 0.8;
       display: flex;
@@ -165,33 +165,98 @@
       border-radius: 32px;
       box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
       border: 4px solid white;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .profile-photo:hover {
       transform: scale(1.02);
+      box-shadow: 0 30px 40px -15px rgba(0,0,0,0.3);
     }
 
+    /* ANIMATED FASHION IMAGES - popping, flashing, dynamic */
     .fashion-grid {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       justify-content: center;
+      flex-wrap: wrap;
       margin-top: 1rem;
     }
 
-    .fashion-img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: all 0.2s;
-      border: 2px solid white;
+    .fashion-item {
+      position: relative;
+      display: inline-block;
     }
 
+    .fashion-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 12px 25px -8px rgba(0,0,0,0.15);
+      border: 3px solid white;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      cursor: pointer;
+    }
+
+    /* Popping animation on hover - scale + glow */
     .fashion-img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.2);
+      transform: scale(1.12) rotate(2deg);
+      box-shadow: 0 20px 35px -10px rgba(30, 111, 92, 0.4);
+      border-color: #1e6f5c;
+    }
+
+    /* Flashing / subtle pulse animation for fashion images (continuous attention grab) */
+    @keyframes softFlash {
+      0% {
+        filter: brightness(1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      50% {
+        filter: brightness(1.03);
+        box-shadow: 0 0 0 4px rgba(30,111,92,0.2), 0 12px 25px rgba(0,0,0,0.15);
+      }
+      100% {
+        filter: brightness(1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+    }
+
+    .fashion-img {
+      animation: softFlash 3s ease-in-out infinite;
+    }
+
+    /* stagger animation delays for each fashion image */
+    .fashion-item:first-child .fashion-img {
+      animation-delay: 0s;
+    }
+    .fashion-item:last-child .fashion-img {
+      animation-delay: 0.6s;
+    }
+
+    /* Optional: popping effect on click (just for fun) */
+    .fashion-img:active {
+      transform: scale(0.98) rotate(-1deg);
+      transition: 0.05s;
+    }
+
+    /* additional pop effect on page load */
+    @keyframes imagePopIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .fashion-img {
+      animation: imagePopIn 0.5s ease-out forwards, softFlash 3s ease-in-out infinite;
+    }
+
+    .profile-photo {
+      animation: imagePopIn 0.6s ease-out;
     }
 
     .btn-group {
@@ -246,6 +311,11 @@
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
       border: 1px solid #eef2f6;
+      transition: transform 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
     }
 
     .skill-card h3 {
@@ -267,6 +337,12 @@
       font-size: 0.85rem;
       font-weight: 500;
       color: #1e2f3e;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: #1e6f5c20;
+      transform: scale(1.02);
     }
 
     .service-cards {
@@ -280,8 +356,14 @@
       background: white;
       padding: 1.5rem;
       border-radius: 24px;
-      transition: 0.2s;
+      transition: 0.25s;
       border: 1px solid #eef2f6;
+    }
+
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.1);
+      border-color: #cbdde9;
     }
 
     .service-item h4 {
@@ -297,6 +379,12 @@
       margin-bottom: 2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.03);
       border: 1px solid #edf2f7;
+      transition: all 0.25s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.08);
     }
 
     .work-title {
@@ -349,6 +437,10 @@
         width: 220px;
         height: 220px;
       }
+      .fashion-img {
+        width: 110px;
+        height: 110px;
+      }
     }
 
     .testimonial-card {
@@ -358,6 +450,12 @@
       margin-bottom: 1.5rem;
       border-radius: 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
     }
 
     .cert-badge {
@@ -368,6 +466,13 @@
       font-size: 0.8rem;
       font-weight: 500;
       margin: 0.3rem 0.5rem 0.3rem 0;
+      transition: all 0.2s;
+    }
+
+    .cert-badge:hover {
+      background: #1e6f5c;
+      color: white;
+      transform: translateY(-2px);
     }
 
     .toolstack {
@@ -384,20 +489,26 @@
       border: 1px solid #e2e8f0;
       font-weight: 500;
       font-size: 0.85rem;
+      transition: 0.2s;
     }
 
-    /* about image row */
+    .tool-item:hover {
+      border-color: #1e6f5c;
+      background: #f0f9f6;
+      transform: scale(1.02);
+    }
+
     .about-visual {
       display: flex;
       gap: 1.2rem;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     .fashion-showcase {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       justify-content: flex-start;
       flex-wrap: wrap;
     }
@@ -419,9 +530,19 @@
     }
 
     hr {
+      margin: 1rem 0;
       border: none;
       border-top: 1px solid #e2edf2;
-      margin: 1rem 0;
+    }
+
+    /* For fun - fancy caption */
+    .fashion-caption {
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 0.4rem;
+      color: #1e6f5c;
+      font-weight: 500;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -456,13 +577,13 @@
         </div>
       </div>
       <div class="hero-image">
-        <img class="profile-photo" src="professional" alt="Bontu Shambel professional portrait" onerror="this.src='https://placehold.co/400x400?text=Professional+Photo'; this.onerror=null;">
+        <img class="profile-photo" src="professional.jpg" alt="Bontu Shambel professional portrait" onerror="this.src='https://placehold.co/400x400?text=Professional+Photo'; this.onerror=null;">
       </div>
     </div>
   </section>
 
   <div class="container">
-    <!-- about section with fashionable images -->
+    <!-- about section with popping/flashing fashion images -->
     <section id="about">
       <h2 class="section-title">Strategic Purpose & Professional Edge</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -474,18 +595,25 @@
             <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">📈 CRO & Audits</span>
             <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">🤖 Multi-channel architecture</span>
           </div>
-          <!-- fashion images inside about section: adds personal style -->
-          <div class="about-visual" style="margin-top: 2rem;">
+          
+          <!-- Animated fashion images area: popping, flashing, interactive -->
+          <div class="about-visual">
             <div class="fashion-showcase">
-              <img class="fashion-img" src="fashioned1" alt="Bontu creative style 1" onerror="this.src='https://placehold.co/130x130?text=Fashion+1'; this.onerror=null;">
-              <img class="fashion-img" src="fashioned2" alt="Bontu creative style 2" onerror="this.src='https://placehold.co/130x130?text=Fashion+2'; this.onerror=null;">
+              <div class="fashion-item">
+                <img class="fashion-img" src="fashioned1.jpg" alt="Bontu creative style 1" onerror="this.src='https://placehold.co/140x140?text=Fashion+1'; this.onerror=null;">
+                <div class="fashion-caption">✨ creative edge</div>
+              </div>
+              <div class="fashion-item">
+                <img class="fashion-img" src="fashioned2.jpg" alt="Bontu creative style 2" onerror="this.src='https://placehold.co/140x140?text=Fashion+2'; this.onerror=null;">
+                <div class="fashion-caption">🎨 visual storytelling</div>
+              </div>
             </div>
-            <p style="font-size:0.85rem; color:#4a627a; max-width:250px;"><em>✨ Creative direction meets strategic mindset — visual storytelling & brand aesthetics.</em></p>
+            <p style="font-size:0.85rem; color:#4a627a; max-width:280px;"><em>⚡ Dynamic brand aesthetics — strategic design meets personality. Hover to see them pop!</em></p>
           </div>
         </div>
         <div style="flex:1; background:#f4f9fc; border-radius:28px; padding:1.5rem; text-align:center;">
           <p style="font-weight:700;">"Bridging materials engineering frameworks with digital marketing methodologies"</p>
-          <hr style="margin:1rem 0;">
+          <hr>
           <p><strong>Target audience:</strong> SMEs, Real Estate, DTC Brands, Institutions</p>
           <p><strong>Core pillar:</strong> Data fidelity & conversion optimization</p>
         </div>
