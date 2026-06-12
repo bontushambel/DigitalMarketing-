@@ -150,6 +150,50 @@
       margin-bottom: 2rem;
     }
 
+    /* Image styling */
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
+      border: 4px solid white;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .fashion-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .fashion-img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      border: 2px solid white;
+    }
+
+    .fashion-img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.2);
+    }
+
     .btn-group {
       display: flex;
       gap: 1rem;
@@ -298,6 +342,13 @@
       .container {
         padding: 0 1.5rem;
       }
+      .hero-image {
+        margin-top: 1rem;
+      }
+      .profile-photo {
+        width: 220px;
+        height: 220px;
+      }
     }
 
     .testimonial-card {
@@ -333,6 +384,22 @@
       border: 1px solid #e2e8f0;
       font-weight: 500;
       font-size: 0.85rem;
+    }
+
+    /* about image row */
+    .about-visual {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .fashion-showcase {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -388,11 +455,14 @@
           <a href="#work" class="btn-outline">View case results</a>
         </div>
       </div>
+      <div class="hero-image">
+        <img class="profile-photo" src="professional" alt="Bontu Shambel professional portrait" onerror="this.src='https://placehold.co/400x400?text=Professional+Photo'; this.onerror=null;">
+      </div>
     </div>
   </section>
 
   <div class="container">
-    <!-- about section -->
+    <!-- about section with fashionable images -->
     <section id="about">
       <h2 class="section-title">Strategic Purpose & Professional Edge</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -403,6 +473,14 @@
             <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; font-weight:500;">📊 Meta & Google Ecosystems</span>
             <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">📈 CRO & Audits</span>
             <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">🤖 Multi-channel architecture</span>
+          </div>
+          <!-- fashion images inside about section: adds personal style -->
+          <div class="about-visual" style="margin-top: 2rem;">
+            <div class="fashion-showcase">
+              <img class="fashion-img" src="fashioned1" alt="Bontu creative style 1" onerror="this.src='https://placehold.co/130x130?text=Fashion+1'; this.onerror=null;">
+              <img class="fashion-img" src="fashioned2" alt="Bontu creative style 2" onerror="this.src='https://placehold.co/130x130?text=Fashion+2'; this.onerror=null;">
+            </div>
+            <p style="font-size:0.85rem; color:#4a627a; max-width:250px;"><em>✨ Creative direction meets strategic mindset — visual storytelling & brand aesthetics.</em></p>
           </div>
         </div>
         <div style="flex:1; background:#f4f9fc; border-radius:28px; padding:1.5rem; text-align:center;">
