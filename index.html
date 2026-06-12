@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Bontu Shambel | Data-Driven Digital Marketing Architect</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0a2540;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 0;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f2b3d, #1e6f5c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo p {
+      font-size: 0.8rem;
+      color: #4a5b6e;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e2f3e;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e6f5c;
+    }
+
+    /* sections */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      border-left: 5px solid #1e6f5c;
+      padding-left: 1rem;
+    }
+
+    .hero {
+      background: linear-gradient(110deg, #ffffff 0%, #f1f5f9 100%);
+      padding: 4rem 0;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e0f2f1;
+      color: #1e6f5c;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #0a2540;
+    }
+
+    .hero-highlight {
+      color: #1e6f5c;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      color: #334155;
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #0f2b3d;
+      color: white;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #1e6f5c;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #1e6f5c;
+      background: transparent;
+      color: #1e6f5c;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #1e6f5c10;
+      border-color: #0f2b3d;
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #eef2f6;
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background: #f1f5f9;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e2f3e;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .service-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 24px;
+      transition: 0.2s;
+      border: 1px solid #eef2f6;
+    }
+
+    .service-item h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .work-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      border: 1px solid #edf2f7;
+    }
+
+    .work-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f2b3d;
+      margin-bottom: 0.5rem;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      background: #f8fafc;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+    }
+
+    .stat {
+      flex: 1;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1e6f5c;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    .testimonial-card {
+      background: white;
+      border-left: 4px solid #1e6f5c;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .cert-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 0.4rem 1rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0.3rem 0.5rem 0.3rem 0;
+    }
+
+    .toolstack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .tool-item {
+      background: white;
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid #e2e8f0;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      background: #0a1c2a;
+      color: #cddfe7;
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    .contact-info a {
+      color: #b9e6dd;
+      text-decoration: none;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2edf2;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">
+        <h2>Bontu Shambel</h2>
+        <p>Data-Driven Growth & Social Architecture</p>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#case">Case Study</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge">Digital Marketing Consultant & Campaign Strategist</span>
+        <h1>Engineering precision <span class="hero-highlight">meets</span> conversion architecture</h1>
+        <p class="hero-tagline">Bridging analytical frameworks with cutting-edge digital methodologies to build scalable online ecosystems.</p>
+        <p class="hero-desc">Addis Ababa, Ethiopia | High-ticket real estate, institutional growth & DTC brands. ROI-focused funnels and data fidelity at core.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn-primary">Initiate partnership →</a>
+          <a href="#work" class="btn-outline">View case results</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- about section -->
+    <section id="about">
+      <h2 class="section-title">Strategic Purpose & Professional Edge</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div style="flex: 2;">
+          <p style="font-size: 1.05rem; margin-bottom: 1rem;"><strong>Bontu Shambel</strong> — Materials Engineering background transformed into high-performance digital marketing. Specializing in eliminating guesswork via audience behavior analytics, predictable client acquisition funnels, and systemic content structures for SMEs, real estate developers, and East African enterprises.</p>
+          <p>My operational philosophy: every asset published and every ad dollar corresponds to explicit business KPIs. Beyond generic management, I deploy multi-tiered conversion paths, automated performance tracking, and scalable graphic asset distribution. High-stakes client engagement workflows meet engineering-level data logic.</p>
+          <div style="margin-top: 1.5rem;">
+            <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; font-weight:500;">📊 Meta & Google Ecosystems</span>
+            <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">📈 CRO & Audits</span>
+            <span style="background:#e9f5f2; padding:0.3rem 1rem; border-radius:30px; margin-left:0.8rem; font-weight:500;">🤖 Multi-channel architecture</span>
+          </div>
+        </div>
+        <div style="flex:1; background:#f4f9fc; border-radius:28px; padding:1.5rem; text-align:center;">
+          <p style="font-weight:700;">"Bridging materials engineering frameworks with digital marketing methodologies"</p>
+          <hr style="margin:1rem 0;">
+          <p><strong>Target audience:</strong> SMEs, Real Estate, DTC Brands, Institutions</p>
+          <p><strong>Core pillar:</strong> Data fidelity & conversion optimization</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- skills section -->
+    <section id="skills">
+      <h2 class="section-title">Core Skill Architecture</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>⚙️ Technical Competencies</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Meta Ads Manager</span>
+            <span class="skill-tag">Google Ads & GA4</span>
+            <span class="skill-tag">Conversion Rate Optimization</span>
+            <span class="skill-tag">Lookalike & Custom Audiences</span>
+            <span class="skill-tag">SEO & Content Strategy</span>
+            <span class="skill-tag">Canva Pro / CapCut</span>
+            <span class="skill-tag">Data Studio / Looker</span>
+            <span class="skill-tag">Marketing Automation</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>🤝 Strategic & Interpersonal</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Campaign Architecture</span>
+            <span class="skill-tag">Consumer Psychology</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">High-ticket Sales Funnels</span>
+            <span class="skill-tag">Cross-functional leadership</span>
+            <span class="skill-tag">Data storytelling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- services suite -->
+    <section id="services">
+      <h2 class="section-title">Strategic Services Suite</h2>
+      <div class="service-cards">
+        <div class="service-item"><h4>📱 Data-Driven Social Media Management</h4><p>Systematic multi-platform deployment, community building, absolute metrics reporting & content calendars.</p></div>
+        <div class="service-item"><h4>🎯 High-Converting Meta & Google Paid Acquisition</h4><p>Full-funnel audience segmentation, budget optimization engineering, algorithmic creative variance testing.</p></div>
+        <div class="service-item"><h4>🔍 Comprehensive Corporate Social Media Audits</h4><p>Competitor analysis, content defect detection, hidden optimization vectors & actionable frameworks.</p></div>
+        <div class="service-item"><h4>🛒 E‑Commerce Architecture & Launch Frameworks</h4><p>High-converting storefront layouts, product positioning, automated nurture tunnels.</p></div>
+      </div>
+    </section>
+
+    <!-- work samples: high-ticket + institutional -->
+    <section id="work">
+      <h2 class="section-title">Work Samples: Measurable Impact</h2>
+      <div class="work-card">
+        <div class="work-title">🏢 Ovid Real Estate — Premium Lead Acquisition Funnels</div>
+        <p><strong>Objective:</strong> Generate qualified sales pipelines & enhance brand authority in high-ticket real estate ecosystem.</p>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-number">+140%</span><br>Qualified Enquiries Volume</div>
+          <div class="stat"><span class="stat-number">3.8%</span><br>Click-Through Rate (Industry above avg)</div>
+          <div class="stat"><span class="stat-number">100%</span><br>Lead Traceability & attribution</div>
+        </div>
+        <p><strong>Activities:</strong> Meta lead forms, copywriting targeting diaspora investors, Canva Pro visuals + architectural renderings, CRM synchronization.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="work-title">🎓 Gage University — 30-Day Campaign Engine (Enrollment Maximization)</div>
+        <p><strong>Objective:</strong> Scale institutional brand awareness & boost student enrollment rates.</p>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-number">+180%</span><br>Total Impressions</div>
+          <div class="stat"><span class="stat-number">+55%</span><br>Inbound Academic Inquiries (DMs)</div>
+          <div class="stat"><span class="stat-number">100%</span><br>Calendar Adherence</div>
+        </div>
+        <p><strong>Execution:</strong> Multi-platform content roadmap, CapCut video formats (campus life, facility tours), community interaction protocols & weekly performance pivots.</p>
+      </div>
+    </section>
+
+    <!-- case study section -->
+    <section id="case">
+      <h2 class="section-title">Data Case Study: Systemic Social Media Audit</h2>
+      <div class="case-grid">
+        <div style="background:#ffffff; border-radius:24px; padding:1.8rem;">
+          <h3>📡 Macro-Telecom & Premium Real Estate Verticals</h3>
+          <p><strong>Challenge:</strong> High impressions but low engagement due to static broadcast content. Uncovered visual bottlenecks & structural gaps across 5 competitor brands.</p>
+          <p><strong>Engineered solution:</strong> Cross-industry audit analyzing 120 days of output (post formats, hashtags, journey friction). Built custom content distribution framework replacing broadcast with interactive video & clear conversion pathways.</p>
+        </div>
+        <div style="background:#f0f6f4; border-radius:24px; padding:1.8rem;">
+          <h3>📈 Quantifiable Lift</h3>
+          <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-top:1rem;">
+            <div><span class="stat-number">120%</span><br>Engagement Multiplier</div>
+            <div><span class="stat-number">40%</span><br>Follower Base Growth (organic, no ad budget inflation)</div>
+          </div>
+          <p style="margin-top:1rem;">Achieved by optimizing visual layouts, structured user response loops & audience segmentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- certifications & toolstack combined -->
+    <section id="certifications">
+      <h2 class="section-title">Professional Certifications & Mastery</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <span class="cert-badge">📘 Google Digital Marketing Excellence</span>
+        <span class="cert-badge">📊 Advanced Google Analytics 4 (GA4) Certification</span>
+        <span class="cert-badge">🎯 Meta Certified Social Media Marketing Associate</span>
+        <span class="cert-badge">📈 HubSpot Inbound Content Marketing Certification</span>
+      </div>
+      <h3 style="margin-top: 1.5rem;">🛠️ Analytical & Creative Toolstack</h3>
+      <div class="toolstack">
+        <span class="tool-item">Google Analytics 4</span>
+        <span class="tool-item">Meta Business Suite</span>
+        <span class="tool-item">Canva Pro</span>
+        <span class="tool-item">CapCut</span>
+        <span class="tool-item">Looker Studio</span>
+        <span class="tool-item">HubSpot</span>
+        <span class="tool-item">Google Ads</span>
+        <span class="tool-item">Mailchimp</span>
+        <span class="tool-item">Hootsuite</span>
+        <span class="tool-item">CRM integrations</span>
+      </div>
+    </section>
+
+    <!-- achievements and endorsements / testimonials -->
+    <section id="achievements">
+      <h2 class="section-title">Key Achievements & Endorsements</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+        <div style="flex:1; background:white; border-radius:20px; padding:1.5rem;">
+          <p><strong>📌 50+</strong> localized multi-tier digital marketing campaigns structured & overseen.</p>
+          <p><strong>📌 5+</strong> enterprise social media audits revealing conversion bottlenecks.</p>
+          <p><strong>📌 +150%</strong> organic engagement growth via structural frameworks.</p>
+          <p><strong>📌 End-to-end pipelines</strong> for academic and high-ticket real estate enterprises.</p>
+        </div>
+        <div style="flex:1.2;">
+          <div class="testimonial-card">
+            <p>“Bontu’s approach combined exceptional visual consistency with structured discipline. Her content strategy significantly improved our audience response rate.”</p>
+            <p style="margin-top:0.5rem; font-weight:600;">— Corporate Strategy Feedback · Institutional Campaign Review</p>
+          </div>
+          <div class="testimonial-card">
+            <p>“Her performance auditing highlighted critical visibility leaks in existing campaign channels. The conversion optimization frameworks changed how we target premium clients online.”</p>
+            <p style="margin-top:0.5rem; font-weight:600;">— Commercial Sales Director · Premium Asset Review</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- education & contact -->
+    <section id="contact">
+      <h2 class="section-title">Academic Foundation & Corporate Partnership</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div style="flex: 1;">
+          <h3>🎓 B.Sc. in Materials Science & Engineering</h3>
+          <p>Adama Science and Technology University (ASTU)<br>Training in structural data systems, algorithmic logic modeling, statistical quality analysis, and deep problem-solving frameworks.</p>
+          <div style="margin-top: 1.5rem;">
+            <p><strong>📍 Based:</strong> Addis Ababa, Ethiopia</p>
+            <p><strong>📧 Email:</strong> <a href="mailto:bontushambel.marketing@gmail.com">bontushambel.marketing@gmail.com</a></p>
+            <p><strong>📱 Telegram Business:</strong> @Bontu Shambel</p>
+            <p><strong>🔗 LinkedIn:</strong> linkedin.com/in/bontu-shambel</p>
+          </div>
+        </div>
+        <div style="flex: 1; background:#eef3f1; border-radius: 28px; padding: 1.8rem;">
+          <h3>🚀 Initiate a Strategic Partnership</h3>
+          <p>Available for corporate consulting, comprehensive digital presence audits, and high-performance multi-channel campaign deployment.</p>
+          <p style="margin-top: 1rem;">Let’s engineer your next growth phase — data-led, conversion-optimized, and built to scale.</p>
+          <a href="mailto:bontushambel.marketing@gmail.com" class="btn-primary" style="display:inline-block; margin-top:1rem;">Contact for audit →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Bontu Shambel — Digital Marketing Consultant | Data-Driven Growth Architecture & Social Media Intelligence</p>
+      <p style="margin-top:0.5rem; font-size:0.8rem;">Addis Ababa, Ethiopia | Global client solutions</p>
+    </div>
+  </footer>
+</body>
+</html>
